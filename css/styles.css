@@ -1,3 +1,119 @@
+/* Minimal style for scrolled register button */
+.register-btn.scrolled-btn {
+    background: #fff;
+    border: 2px solid #3F186A;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(63, 24, 106, 0.10);
+    color: #3F186A;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    min-width: 0;
+    transition: none;
+    box-sizing: border-box;
+}
+.register-btn.scrolled-btn .register-btn__text {
+    color: #3F186A;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0;
+    padding: 0;
+    text-transform: none;
+    transition: none;
+}
+.register-btn.scrolled-btn .register-btn__icon {
+    order: 2;
+    background: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+    margin-left: 0.25rem;
+}
+.register-btn.scrolled-btn .register-btn__arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    transform: rotate(0deg);
+    /* Use filter to make SVG arrow #3F186A */
+    filter: brightness(0) saturate(100%) invert(14%) sepia(60%) saturate(1162%) hue-rotate(238deg) brightness(90%) contrast(98%);
+    transition: none;
+}
+.register-btn.scrolled-btn:hover,
+.register-btn.scrolled-btn:active,
+.register-btn.scrolled-btn.toggled {
+    background: #fff !important;
+    color: #3F186A !important;
+    border: 2px solid #3F186A !important;
+    box-shadow: 0 2px 8px rgba(63, 24, 106, 0.10) !important;
+}
+.register-btn.scrolled-btn .register-btn__icon,
+.register-btn.scrolled-btn .register-btn__arrow,
+.register-btn.scrolled-btn .register-btn__text {
+    pointer-events: none;
+}
+.header--scrolled .register-btn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #3F186A;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(63, 24, 106, 0.10);
+    color: #3F186A;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem 0.5rem 1.5rem;
+    cursor: pointer;
+    gap: 0.75rem;
+    transition: none;
+    min-width: 0;
+}
+.header--scrolled .register-btn__text {
+    color: #3F186A;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0;
+    padding: 0;
+    text-transform: none;
+    transition: none;
+}
+.header--scrolled .register-btn__icon {
+    order: 2;
+    background: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+    margin-left: 0.25rem;
+}
+.header--scrolled .register-btn__arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    transform: rotate(0deg);
+    filter: invert(18%) sepia(49%) saturate(7472%) hue-rotate(262deg) brightness(60%) contrast(110%);
+    transition: none;
+}
+.header--scrolled .register-btn:hover,
+.header--scrolled .register-btn:active,
+.header--scrolled .register-btn.toggled {
+    background: #fff;
+    color: #3F186A;
+    border: 2px solid #3F186A;
+    box-shadow: 0 2px 8px rgba(63, 24, 106, 0.10);
+}
+.header--scrolled .register-btn__icon,
+.header--scrolled .register-btn__arrow,
+.header--scrolled .register-btn__text {
+    pointer-events: none;
+}
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -18,16 +134,32 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
 
 p {
     margin-bottom: 1rem;
@@ -148,14 +280,15 @@ a:hover {
 .register-btn {
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, #000E38 0%, #000E38 30%, #fff 30%, #fff 100%);
+    background: linear-gradient(to right, #3F186A 0%, #000E38 30%, #fff 30%, #fff 100%);
     border: 1px solid #000E38;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     position: relative;
+    z-index: 1;
 }
 
 .register-btn__icon {
@@ -164,13 +297,13 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .register-btn__arrow {
     width: 18px;
     height: 19px;
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .register-btn__text {
@@ -180,34 +313,36 @@ a:hover {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: color 0.5s cubic-bezier(0.4,0,0.2,1);
+    transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
 }
 
 /* Toggled state: Unified gradient, icon rotates, loading bar animation */
+.register-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #3F186A 0%, #000E38 100%);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    z-index: -1;
+}
+
 .register-btn.toggled {
-    background: linear-gradient(90deg, #000E38 0%, #3F186A 100%);
-    background-size: 200% 100%;
-    background-position: left;
-    border-color: #3A006F;
-    animation: loading-bar 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+    width: 100%;
 }
 
-@keyframes loading-bar {
-    from {
-        background-position: left;
-    }
-    to {
-        background-position: right;
-    }
+.register-btn.toggled {
+    width: 100%;
 }
-
+.register-btn.toggled::before {
+    width: 100%;
+}
 .register-btn.toggled .register-btn__icon {
     background: transparent;
-    transform: rotate(45deg);
-}
-
-.register-btn.toggled .register-btn__arrow {
     transform: rotate(45deg);
 }
 
@@ -215,23 +350,26 @@ a:hover {
     color: #fff;
 }
 
+/* Register Button style when header is scrolled */
+.header--scrolled .register-btn {
+    background: #fff;
+    border: 2px solid #3F186A;
+    box-shadow: 0 2px 8px rgba(63, 24, 106, 0.10);
+    color: #3F186A;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+.header--scrolled .register-btn__text {
+    color: #3F186A;
+    font-weight: 600;
+}
+.header--scrolled .register-btn__arrow {
+    filter: invert(18%) sepia(49%) saturate(7472%) hue-rotate(262deg) brightness(60%) contrast(110%);
+    rotate: 45deg;
+}
+
 /* Reset animation when toggling off */
 .register-btn:not(.toggled) {
     animation: none;
-}
-
-/* Hover effects */
-.register-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.register-btn:hover .register-btn__icon {
-    background: linear-gradient(to right, #3F186A, #6A00B0);
-}
-
-.register-btn:hover .register-btn__text {
-    color: #000E38;
 }
 
 /* Main Content */
@@ -757,46 +895,46 @@ a:hover {
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .nav__menu {
         gap: 1rem;
     }
-    
+
     .nav__register {
         margin-top: 1rem;
     }
-    
+
     .register-btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .hero__title {
         font-size: 2rem;
     }
-    
+
     .hero__actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .about-content__grid,
     .contact-content__grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .features__grid,
     .mission-values__grid,
     .team__grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero,
     .page-header {
         padding: 2rem 0;
     }
-    
+
     .features,
     .about-content,
     .mission-values,
@@ -810,16 +948,16 @@ a:hover {
     .container {
         padding: 0 0.5rem;
     }
-    
+
     .hero__title {
         font-size: 1.75rem;
     }
-    
+
     .btn {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
-    
+
     .feature-card,
     .mission-card,
     .team-member,
@@ -852,7 +990,7 @@ a:hover {
     .btn--primary {
         border: 2px solid #000;
     }
-    
+
     .feature-card,
     .mission-card,
     .team-member,

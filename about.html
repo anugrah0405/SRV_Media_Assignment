@@ -31,11 +31,19 @@
                     </li>
                 </ul>
                 <div class="nav__register">
-                    <button class="register-btn" type="button">
+                    <!-- Initial Button -->
+                    <button class="register-btn initial-btn" type="button">
                         <div class="register-btn__icon">
                             <img src="images/button_arrow.svg" alt="Arrow" class="register-btn__arrow">
                         </div>
                         <span class="register-btn__text">REGISTER NOW</span>
+                    </button>
+                    <!-- Scrolled Button -->
+                    <button class="register-btn scrolled-btn" type="button" style="display:none">
+                        <span class="register-btn__text">Register Now</span>
+                        <span class="register-btn__icon">
+                            <img src="images/button_arrow.svg" alt="Arrow" class="register-btn__arrow">
+                        </span>
                     </button>
                 </div>
             </div>
@@ -187,27 +195,40 @@
         // Header background change on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
+            const initialBtn = document.querySelector('.register-btn.initial-btn');
+            const scrolledBtn = document.querySelector('.register-btn.scrolled-btn');
             if (window.scrollY > 0) {
                 header.classList.add('header--scrolled');
+                if (initialBtn) initialBtn.style.display = 'none';
+                if (scrolledBtn) scrolledBtn.style.display = 'flex';
             } else {
                 header.classList.remove('header--scrolled');
+                if (initialBtn) initialBtn.style.display = 'flex';
+                if (scrolledBtn) scrolledBtn.style.display = 'none';
             }
         });
 
-        // Register button toggle animation
-        const registerBtn = document.querySelector('.register-btn');
-        const registerIcon = registerBtn.querySelector('.register-btn__icon');
-        const registerArrow = registerBtn.querySelector('.register-btn__arrow');
-        let toggled = false;
-
-        registerBtn.addEventListener('click', function() {
-            toggled = !toggled;
-            if (toggled) {
-                this.classList.add('toggled');
-            } else {
+        // Register button toggle animation (only for initial button)
+        const registerBtn = document.querySelector('.register-btn.initial-btn');
+        if (registerBtn) {
+            let toggled = false;
+            registerBtn.addEventListener('click', function() {
+                toggled = !toggled;
+                if (toggled) {
+                    this.classList.add('toggled');
+                } else {
+                    this.classList.remove('toggled');
+                }
+            });
+        }
+        // Prevent toggled class or any effect on scrolled button
+        const scrolledBtn = document.querySelector('.register-btn.scrolled-btn');
+        if (scrolledBtn) {
+            scrolledBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 this.classList.remove('toggled');
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>
